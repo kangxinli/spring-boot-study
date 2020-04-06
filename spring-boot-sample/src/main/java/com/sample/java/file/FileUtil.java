@@ -11,14 +11,88 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.Pipe;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class FileUtil {
 
-	private static final int FILE_SIZE = 100 * 1024 * 1024;	// n兆
+	private static final int FILE_SIZE = 1 * 1024 * 1024;	// n兆
+	
+	/**
+	 * 文件上传
+	 * @param file
+	 * @param uploadPath
+	 * @return
+	 * @throws IOException
+	 */
+	public static String uploadfile(MultipartFile file, String uploadPath) throws IOException{
+		
+		String fileName = file.getOriginalFilename();
+       // 获取文件的后缀名
+       String suffixName = fileName.substring(fileName.lastIndexOf(".") + 1);
+		
+		String filePath = uploadPath + "/" + UUID.randomUUID().toString() + "." + suffixName;
+		FileInputStream fis = null;
+        FileOutputStream fos = null;
+ 
+        try {
+            fis = (FileInputStream) file.getInputStream();
+            fos = new FileOutputStream(new File(filePath));
+ 
+            FileChannel inChannel = fis.getChannel();
+            FileChannel outChannel = fos.getChannel();
+ 
+            int capacity = 1024;
+            ByteBuffer buffer = ByteBuffer.allocate(capacity);
+            while( (inChannel.read(buffer))!=-1 ){
+                buffer.flip();
+ 
+                while (( outChannel.write(buffer) )!=0){
+ 
+                }
+                buffer.clear();
+            }
+            inChannel.close();
+            outChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return filePath;
+    }
+	
+	/**
+	 * 文件删除
+	 * @param path
+	 * @throws IOException
+	 */
+	public static void deleteFile(String path) throws IOException {
+		Path p = Paths.get(path);
+		Files.delete(p);
+	}
 
+	/**
+	 * 文件压缩
+	 * @param filePath
+	 * @param zipFile
+	 */
 	public static void zipFilePip(String filePath, String zipFile) {
 		try (WritableByteChannel out = Channels.newChannel(new FileOutputStream(zipFile))) {
 			Pipe pipe = Pipe.open();
