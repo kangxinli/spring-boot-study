@@ -15,10 +15,10 @@
 		<module>spring-boot-sample</module>
 		<module>spring-boot-banner</module>
 		<module>spring-boot-lock-redis</module>
-		<module>spring-boot-kettle</module>
 		<module>spring-boot-jpa</module>
 		<module>spring-boot-mybatis</module>
 		<module>spring-boot-mybatis-plus</module>
 		<module>spring-boot-shiro</module>
+		<module>spring-boot-https</module>
 	</modules>
 </project>
