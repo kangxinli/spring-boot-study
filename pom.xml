@@ -20,5 +20,6 @@
 		<module>spring-boot-mybatis-plus</module>
 		<module>spring-boot-shiro</module>
 		<module>spring-boot-https</module>
+		<module>spring-boot-serial-port</module>
 	</modules>
 </project>
