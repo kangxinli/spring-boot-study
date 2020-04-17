@@ -21,5 +21,6 @@
 		<module>spring-boot-shiro</module>
 		<module>spring-boot-https</module>
 		<module>spring-boot-serial-port</module>
+		<module>spring-boot-swagger</module>
 	</modules>
 </project>
