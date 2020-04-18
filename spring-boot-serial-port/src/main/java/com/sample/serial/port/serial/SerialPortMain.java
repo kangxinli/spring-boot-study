@@ -38,7 +38,6 @@ import gnu.io.UnsupportedCommOperationException;
  * VM arguments 添加
  * -Dfile.encoding=gbk
  */
-@SuppressWarnings("restriction")
 public class SerialPortMain extends JFrame implements ActionListener,SerialPortEventListener{
 
 	private static final long serialVersionUID = -3478807170545926241L;

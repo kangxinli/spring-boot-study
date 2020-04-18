@@ -22,5 +22,6 @@
 		<module>spring-boot-https</module>
 		<module>spring-boot-serial-port</module>
 		<module>spring-boot-swagger</module>
+		<module>spring-boot-aspect-log</module>
 	</modules>
 </project>
