@@ -23,5 +23,6 @@
 		<module>spring-boot-serial-port</module>
 		<module>spring-boot-swagger</module>
 		<module>spring-boot-aspect-log</module>
+		<module>spring-boot-file</module>
 	</modules>
 </project>
