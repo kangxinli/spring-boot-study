@@ -19,7 +19,6 @@ import com.sample.app.service.impl.AbstractIFileService;
 /**
  * 阿里云配置
  *
- * @author 作者 owen E-mail: 624191343@qq.com
  */
 @Configuration
 @ConditionalOnProperty(name = "app.file-server.type", havingValue = "aliyun")

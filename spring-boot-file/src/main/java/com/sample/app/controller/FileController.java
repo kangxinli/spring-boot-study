@@ -19,7 +19,6 @@ import com.sample.app.service.IFileService;
 /**
  * 文件上传
  *
- * @author 作者 owen E-mail: 624191343@qq.com
  */
 @RestController
 public class FileController {

@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * AbstractIFileService 抽取类
- * 根据zlt.file-server.type 实例化具体对象
+ * 根据app.file-server.type 实例化具体对象
  *
  */
 @Slf4j

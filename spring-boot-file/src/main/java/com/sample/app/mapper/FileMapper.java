@@ -13,7 +13,6 @@ import com.sample.app.entity.FileInfo;
 /**
  * 上传存储db
  *
- * @author zlt
  */
 @Mapper
 public interface FileMapper extends BaseMapper<FileInfo> {
