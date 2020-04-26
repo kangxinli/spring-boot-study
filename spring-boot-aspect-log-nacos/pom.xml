@@ -5,11 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sample</groupId>
-	<artifactId>spring-boot-aspect-log-elk</artifactId>
+	<artifactId>spring-boot-aspect-log-nacos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>spring-boot-aspect-log-elk</name>
-	<!-- FIXME change it to the project's website -->
+	<name>spring-boot-aspect-log-nacos</name>
 	<url>http://www.example.com</url>
 
 	<!-- Spring Boot 启动父依赖 -->
@@ -38,12 +37,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <!--logstash 依赖-->
-        <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>5.3</version>
         </dependency>
         
         <!-- aspect 工具类 -->
