@@ -13,14 +13,11 @@ import com.sample.app.mapper.FileMapper;
 import com.sample.app.service.IFileService;
 import com.sample.app.utils.FileUtil;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * AbstractIFileService 抽取类
  * 根据app.file-server.type 实例化具体对象
  *
  */
-@Slf4j
 public abstract class AbstractIFileService extends ServiceImpl<FileMapper, FileInfo> implements IFileService {
     private static final String FILE_SPLIT = ".";
 
