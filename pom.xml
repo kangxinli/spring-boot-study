@@ -24,5 +24,6 @@
 		<module>spring-boot-swagger</module>
 		<module>spring-boot-aspect-log</module>
 		<module>spring-boot-file</module>
+		<module>spring-boot-aspect-log-elk</module>
 	</modules>
 </project>
