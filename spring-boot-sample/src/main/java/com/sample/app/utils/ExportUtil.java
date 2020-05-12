@@ -40,11 +40,12 @@ public class ExportUtil {
             byte[] b = new byte[1024];
             int length;
             InputStream inputStream = new FileInputStream(sourceFile);
-            OutputStream os = response.getOutputStream();
+            OutputStream outputStream = response.getOutputStream();
             while ((length = inputStream.read(b)) > 0) {
-                os.write(b, 0, length);
+            	outputStream.write(b, 0, length);
             }
             inputStream.close();
+            outputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
