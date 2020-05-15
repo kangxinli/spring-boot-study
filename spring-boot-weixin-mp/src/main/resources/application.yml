@@ -1,0 +1,13 @@
+
+logging:
+  level:
+    org.springframework.web: INFO
+    com.sample.weixin.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+wx:
+  mp:
+    configs:
+      - appId: 
+        secret: 
+        token: 
+        aesKey: 

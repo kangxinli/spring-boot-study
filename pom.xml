@@ -25,5 +25,6 @@
 		<module>spring-boot-aspect-log</module>
 		<module>spring-boot-file</module>
 		<module>spring-boot-aspect-log-nacos</module>
+		<module>spring-boot-weixin-mp</module>
 	</modules>
 </project>
