@@ -25,7 +25,7 @@ public class RabbitmqApplicationTests {
 	
 	@Autowired
     private TopicSend sender;
-
+	
 	/**
 	 * 简单模式
 	 */
@@ -70,4 +70,5 @@ public class RabbitmqApplicationTests {
         sender.send2();
     }
     // topic 模式   end =======
+    
 }

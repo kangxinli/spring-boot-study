@@ -1,5 +1,6 @@
 package com.sample.app.config;
 
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.FanoutExchange;
@@ -7,6 +8,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +16,9 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sample.app.constant.Constant;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 public class RabbitMQConfig {
 
@@ -28,7 +33,7 @@ public class RabbitMQConfig {
     
     @Value("${spring.rabbit.password}")
     private String password;
-
+    
     // 创建队列
     @Bean
     public Queue queue() {
@@ -118,6 +123,8 @@ public class RabbitMQConfig {
     Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
         return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
     }
+    
+    // ==================  通用配置  =====================
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -130,6 +137,37 @@ public class RabbitMQConfig {
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         return new RabbitTemplate(connectionFactory);
+    }
+    
+    @Bean
+    public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
+        return new RabbitAdmin(connectionFactory);
+    }
+    
+    // 配置发送格式
+    @Bean
+    public AmqpTemplate amqpTemplate(RabbitTemplate rabbitTemplate) {
+
+        // 使用jackson 消息转换器
+        // rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+        // rabbitTemplate.setEncoding("UTF-8");
+
+        // 开启returncallback
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
+            String correlationId = message.getMessageProperties().getCorrelationId();
+            log.info("消息：{} 发送失败, 应答码：{} 原因：{} 交换机: {}  路由键: {}", correlationId, replyCode, replyText, exchange, routingKey);
+        });
+
+        //  消息确认  yml 需要配置
+        rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
+            if (ack) {
+                log.info("消息发送到exchange成功");
+            } else {
+                log.info("消息发送到exchange失败,原因: {}", cause);
+            }
+        });
+        return rabbitTemplate;
     }
 
 }
