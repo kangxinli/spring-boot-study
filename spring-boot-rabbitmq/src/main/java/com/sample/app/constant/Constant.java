@@ -12,7 +12,7 @@ public class Constant {
 	 * 6： RPC
 	 */
 	
-	public final static String QUEUE_NAME = "spring-boot-queue";
+//	public final static String QUEUE_NAME = "spring-boot-queue";
 	
 	public static final String QUEUE_NAME_1 = "hello";
 	

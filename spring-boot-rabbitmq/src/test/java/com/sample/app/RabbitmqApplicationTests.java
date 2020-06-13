@@ -10,6 +10,7 @@ import com.sample.app.demo1.HelloSender;
 import com.sample.app.demo2.NeoSender;
 import com.sample.app.demo3.FanoutSender;
 import com.sample.app.demo5.TopicSend;
+import com.sample.app.msgconfim.sender.ConfirmSender;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,6 +26,9 @@ public class RabbitmqApplicationTests {
 	
 	@Autowired
     private TopicSend sender;
+	
+	@Autowired
+    private ConfirmSender confirmSender;
 	
 	/**
 	 * 简单模式
@@ -71,4 +75,10 @@ public class RabbitmqApplicationTests {
     }
     // topic 模式   end =======
     
+    
+    // 消息确认
+    @Test
+    public void confirm() {
+        confirmSender.send();
+    }
 }

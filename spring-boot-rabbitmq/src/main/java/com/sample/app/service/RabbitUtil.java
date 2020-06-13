@@ -1,4 +1,4 @@
-package com.sample.app.config;
+package com.sample.app.service;
 
 import java.util.Collections;
 import java.util.List;

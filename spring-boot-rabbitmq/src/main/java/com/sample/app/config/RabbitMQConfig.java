@@ -34,12 +34,6 @@ public class RabbitMQConfig {
     @Value("${spring.rabbit.password}")
     private String password;
     
-    // 创建队列
-    @Bean
-    public Queue queue() {
-        return new Queue(Constant.QUEUE_NAME);
-    }
-    
     // 简单模式
     @Bean
     public Queue queue1() {
