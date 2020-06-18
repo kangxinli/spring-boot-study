@@ -28,5 +28,6 @@
 		<module>spring-boot-weixin-mp</module>
 		<module>spring-boot-rabbitmq</module>
 		<module>spring-boot-weixin-qrcode</module>
+		<module>spring-boot-jwt</module>
 	</modules>
 </project>
