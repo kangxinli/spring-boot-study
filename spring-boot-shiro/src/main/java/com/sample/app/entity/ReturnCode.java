@@ -2,13 +2,11 @@ package com.sample.app.entity;
 
 public enum ReturnCode {
 	
-	UNAUTHORIZED("401", "没有权限"),
-	SUCCESS("0000","操作成功"),
-    FAILED("0001","操作失败"),
-    LOGIN_FAIL("0002", "登录失败"),
-    API_ERROR("1000", "请求的接口异常"),
-    PARAMS_ERROR("1001", "参数为空或格式错误"),
-    SYSTEM_ERROR("9999", "系统异常");
+	SUCCESS("200","操作成功"),
+	UNAUTHORIZED("401", "身份验证"),
+	FORBIDDEN("403", "没有访问权限"),
+    FAILED("500","操作失败"),
+    SYSTEM_ERROR("503", "系统维护");
  
     private String code;
     private String msg;

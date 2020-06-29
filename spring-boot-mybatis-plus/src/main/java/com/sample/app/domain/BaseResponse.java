@@ -1,6 +1,6 @@
-package com.sample.app.common.domain;
+package com.sample.app.domain;
 
-import com.sample.app.common.constant.ReturnCode;
+import com.sample.app.constant.ReturnCode;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ResponseWrapper {
+public class BaseResponse<T> {
 
 	/** 是否成功 */
 	private boolean success;
@@ -18,7 +18,7 @@ public class ResponseWrapper {
 	/** 返回信息 */
 	private String msg;
 	/** 返回数据 */
-	private Object data;
+	private T data;
 
 	/**
 	 * 自定义返回结果 建议使用统一的返回结果，特殊情况可以使用此方法
@@ -29,8 +29,8 @@ public class ResponseWrapper {
 	 * @param data
 	 * @return
 	 */
-	public static ResponseWrapper markCustom(boolean success, String code, String msg, Object data) {
-		ResponseWrapper responseWrapper = new ResponseWrapper();
+	public static <T> BaseResponse<T> markCustom(boolean success, String code, String msg, T data) {
+		BaseResponse<T> responseWrapper = new BaseResponse<T>();
 		responseWrapper.setSuccess(success);
 		responseWrapper.setCode(code);
 		responseWrapper.setMsg(msg);
@@ -43,8 +43,8 @@ public class ResponseWrapper {
 	 * 
 	 * @return
 	 */
-	public static ResponseWrapper markError() {
-		ResponseWrapper responseWrapper = new ResponseWrapper();
+	public static <T> BaseResponse<T> markError() {
+		BaseResponse<T> responseWrapper = new BaseResponse<T>();
 		responseWrapper.setSuccess(false);
 		responseWrapper.setCode(ReturnCode.FAILED.getCode());
 		responseWrapper.setMsg(ReturnCode.FAILED.getMsg());
@@ -58,8 +58,8 @@ public class ResponseWrapper {
 	 * @param data
 	 * @return
 	 */
-	public static ResponseWrapper markSuccess(Object data) {
-		ResponseWrapper responseWrapper = new ResponseWrapper();
+	public static <T> BaseResponse<T> markSuccess(T data) {
+		BaseResponse<T> responseWrapper = new BaseResponse<T>();
 		responseWrapper.setSuccess(true);
 		responseWrapper.setCode(ReturnCode.SUCCESS.getCode());
 		responseWrapper.setMsg(ReturnCode.SUCCESS.getMsg());

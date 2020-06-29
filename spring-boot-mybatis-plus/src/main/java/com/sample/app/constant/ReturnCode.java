@@ -1,4 +1,4 @@
-package com.sample.app.common.constant;
+package com.sample.app.constant;
 
 public enum ReturnCode {
 	

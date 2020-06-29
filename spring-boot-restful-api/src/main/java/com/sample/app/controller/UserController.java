@@ -1,6 +1,7 @@
 package com.sample.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,25 +10,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sample.app.domain.BaseResponse;
 import com.sample.app.entity.User;
+import com.sample.app.repository.UserRepository;
 
-public class BaseController<M extends BaseMapper<T>, T> {
-	
+@RequestMapping("/users")
+@RestController
+public class UserController {
 	@Autowired
-    protected M baseMapper;
-
+	private UserRepository userRepository;
+	
 	/**
 	 * 查询列表
 	 * @return
 	 */
 	@GetMapping("/")
-	public List<T> get() {
-		QueryWrapper<T> queryWrapper = new QueryWrapper<T>();
-		return baseMapper.selectList(queryWrapper);
+	public List<User> get() {
+		return this.userRepository.findAll();
 	}
 
 	/**
@@ -36,8 +38,8 @@ public class BaseController<M extends BaseMapper<T>, T> {
 	 * @return
 	 */
 	@GetMapping("/{id}")
-	public BaseResponse<T> findById(@PathVariable Long id) {
-		return BaseResponse.markSuccess(baseMapper.selectById(id));
+	public Optional<User> findById(@PathVariable Long id) {
+		return this.userRepository.findById(id);
 	}
 	
 	/**
@@ -46,8 +48,8 @@ public class BaseController<M extends BaseMapper<T>, T> {
 	 * @return
 	 */
 	@PostMapping
-	public BaseResponse<Integer> addUser(@RequestBody T entity) {
-		return BaseResponse.markSuccess(baseMapper.insert(entity));
+	public BaseResponse<User> addUser(@RequestBody User user) {
+		return BaseResponse.markSuccess(this.userRepository.save(user));
 	}
 	
 	/**
@@ -56,8 +58,8 @@ public class BaseController<M extends BaseMapper<T>, T> {
 	 * @return
 	 */
 	@PutMapping
-	public BaseResponse<Integer> updateUser(@RequestBody T entity) {
-		return BaseResponse.markSuccess(baseMapper.insert(entity));
+	public BaseResponse<User> updateUser(@RequestBody User user) {
+		return BaseResponse.markSuccess(this.userRepository.save(user));
 	}
 	
 	/**
@@ -65,10 +67,9 @@ public class BaseController<M extends BaseMapper<T>, T> {
 	 * @param userId
 	 * @return
 	 */
-	@DeleteMapping(value = "/{id}")
-	public BaseResponse<User> deleteUser(@PathVariable("id") Long id) {
-		baseMapper.deleteById(id);
+	@DeleteMapping(value = "/{userId}")
+	public BaseResponse<User> deleteUser(@PathVariable("userId") Long userId) {
+		this.userRepository.deleteById(userId);
 		return BaseResponse.markSuccess(null);
 	}
-
 }

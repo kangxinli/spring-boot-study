@@ -36,18 +36,6 @@ public class ResponseWrapper {
 		return responseWrapper;
 	}
 
-	/**
-	 * 参数为空或者参数格式错误
-	 * 
-	 * @return
-	 */
-	public static ResponseWrapper markParamError() {
-		ResponseWrapper responseWrapper = new ResponseWrapper();
-		responseWrapper.setSuccess(false);
-		responseWrapper.setCode(ReturnCode.PARAMS_ERROR.getCode());
-		responseWrapper.setMsg(ReturnCode.PARAMS_ERROR.getMsg());
-		return responseWrapper;
-	}
 
 	/**
 	 * 查询失败

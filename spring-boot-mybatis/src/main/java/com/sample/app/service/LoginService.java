@@ -55,6 +55,6 @@ public class LoginService {
 			logger.error("login failed. ExcessiveAttemptsException : " + "_" + e.getMessage(), e);
 		}
 		// 用户名/密码错误
-		return ResponseWrapper.markCustom(false, ReturnCode.LOGIN_FAIL.getCode(), "用户名或密码错误", null);
+		return ResponseWrapper.markCustom(false, ReturnCode.FAILED.getCode(), "用户名或密码错误", null);
 	}
 }
