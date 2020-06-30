@@ -30,5 +30,6 @@
 		<module>spring-boot-weixin-qrcode</module>
 		<module>spring-boot-jwt</module>
 		<module>spring-boot-restful-api</module>
+		<module>spring-boot-db-screw</module>
 	</modules>
 </project>
