@@ -36,13 +36,6 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		
-		<!-- Spring Boot Test 依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
         <!-- MySQL 连接驱动依赖 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -84,7 +77,7 @@
 	                <!--driver-->
 	                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
 	                <!--jdbc url-->
-	                <jdbcUrl>jdbc:mysql://127.0.0.1:3306/user-center</jdbcUrl>
+	                <jdbcUrl>jdbc:mysql://127.0.0.1:3306/user-center?serverTimezone=GMT%2B8</jdbcUrl>
 	                <!--生成文件类型-->
 	                <fileType>HTML</fileType>
 	                <!--打开文件输出目录-->
@@ -98,15 +91,50 @@
 	                <!--标题-->
 	                <title>数据库文档</title>
 	            </configuration>
-	            <!-- <executions>
+	            <executions>
 	                <execution>
 	                    <phase>compile</phase>
 	                    <goals>
 	                        <goal>run</goal>
 	                    </goals>
 	                </execution>
-	            </executions> -->
+	            </executions>
 	        </plugin>
 	    </plugins>
+	    <pluginManagement>
+	    	<plugins>
+	    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+	    		<plugin>
+	    			<groupId>org.eclipse.m2e</groupId>
+	    			<artifactId>lifecycle-mapping</artifactId>
+	    			<version>1.0.0</version>
+	    			<configuration>
+	    				<lifecycleMappingMetadata>
+	    					<pluginExecutions>
+	    						<pluginExecution>
+	    							<pluginExecutionFilter>
+	    								<groupId>
+	    									cn.smallbun.screw
+	    								</groupId>
+	    								<artifactId>
+	    									screw-maven-plugin
+	    								</artifactId>
+	    								<versionRange>
+	    									[1.0.1,)
+	    								</versionRange>
+	    								<goals>
+	    									<goal>run</goal>
+	    								</goals>
+	    							</pluginExecutionFilter>
+	    							<action>
+	    								<ignore></ignore>
+	    							</action>
+	    						</pluginExecution>
+	    					</pluginExecutions>
+	    				</lifecycleMappingMetadata>
+	    			</configuration>
+	    		</plugin>
+	    	</plugins>
+	    </pluginManagement>
 	</build>
 </project>
