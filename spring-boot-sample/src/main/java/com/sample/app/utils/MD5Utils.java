@@ -39,7 +39,7 @@ public class MD5Utils {
     
     
     public static void main(String[] args) {
-    	String strtest = md5Password("kxl11020150820");
+    	String strtest = md5Password("");
     	System.out.println(strtest);
     }
     
