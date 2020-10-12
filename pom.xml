@@ -34,5 +34,6 @@
 		<module>spring-boot-job</module>
 		<module>spring-boot-httpclient</module>
 		<module>spring-boot-email</module>
+		<module>spring-boot-rocketmq</module>
 	</modules>
 </project>
