@@ -36,5 +36,6 @@
 		<module>spring-boot-email</module>
 		<module>spring-boot-rocketmq</module>
 		<module>spring-boot-knife4j</module>
+		<module>spring-boot-excel</module>
 	</modules>
 </project>
