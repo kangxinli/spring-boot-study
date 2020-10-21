@@ -35,5 +35,6 @@
 		<module>spring-boot-httpclient</module>
 		<module>spring-boot-email</module>
 		<module>spring-boot-rocketmq</module>
+		<module>spring-boot-knife4j</module>
 	</modules>
 </project>
