@@ -37,5 +37,6 @@
 		<module>spring-boot-rocketmq</module>
 		<module>spring-boot-knife4j</module>
 		<module>spring-boot-excel</module>
+		<module>spring-boot-custom-annotation</module>
 	</modules>
 </project>
