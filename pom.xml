@@ -38,5 +38,6 @@
 		<module>spring-boot-knife4j</module>
 		<module>spring-boot-excel</module>
 		<module>spring-boot-custom-annotation</module>
+		<module>spring-boot-crypto</module>
 	</modules>
 </project>
