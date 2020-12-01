@@ -39,5 +39,6 @@
 		<module>spring-boot-excel</module>
 		<module>spring-boot-custom-annotation</module>
 		<module>spring-boot-crypto</module>
+		<module>spring-boot-multi-ds-mybatisplus</module>
 	</modules>
 </project>
