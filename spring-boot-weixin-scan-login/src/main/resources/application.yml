@@ -1,0 +1,12 @@
+
+server:
+  port: 9999
+  
+wx:
+  open:
+    config:
+      # 微信开放平台 appid / secret
+      appid: xxxxxxxxxxxxxxxxxxxxxxx
+      secret: xxxxxxxxxxxxxxxxxxxxxxxxx
+      redirectUrl: http://www.xxx.com/wxCallBack
+      csrfKey: WeChat_WxJava_Demo

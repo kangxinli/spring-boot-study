@@ -40,5 +40,7 @@
 		<module>spring-boot-custom-annotation</module>
 		<module>spring-boot-crypto</module>
 		<module>spring-boot-multi-ds-mybatisplus</module>
+		<module>spring-boot-weixin-scan-login</module>
+		<module>spring-boot-pic-gif</module>
 	</modules>
 </project>
