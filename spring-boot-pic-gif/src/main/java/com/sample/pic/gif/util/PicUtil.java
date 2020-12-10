@@ -27,6 +27,7 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
        Forbidden references(access rules)选为Warning就可以编译通过。
  *
  */
+@SuppressWarnings("restriction")
 public class PicUtil {
 
 	/**
