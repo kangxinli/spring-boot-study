@@ -1,0 +1,28 @@
+
+server:
+  port: 9134
+
+#邮箱配置
+spring:
+  mail:
+    host: smtp.exmail.qq.com
+    #发送者邮箱账号
+    username: xx@xx.com
+    #发送者密钥
+    password: xxxx
+    default-encoding: utf-8
+    port: 465
+    protocol: smtp
+    properties:
+      mail:
+        debug:
+          false
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            
+# 钉钉
+dingtalk:
+  webhook: 
+  secret: 
+          

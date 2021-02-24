@@ -43,5 +43,6 @@
 		<module>spring-boot-weixin-scan-login</module>
 		<module>spring-boot-pic-gif</module>
 		<module>spring-boot-async</module>
+		<module>spring-boot-skywalking-alarm</module>
 	</modules>
 </project>
